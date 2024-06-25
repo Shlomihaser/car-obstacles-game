@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     private GameManager gameManager;
     private Timer timer;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,9 +110,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void moveCar(int side){
         int carPosition = gameManager.getCarPos();
-        cars[carPosition].setVisibility(View.INVISIBLE);
         if( (side == -1 && carPosition == 0) || (side == 1 && carPosition == 2))
             return;
+        cars[carPosition].setVisibility(View.INVISIBLE);
         cars[carPosition + side].setVisibility(View.VISIBLE);
         gameManager.setCarPos(carPosition + side);
     }
