@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(i);
             finish();
         } else {
-            hearts[3-life].setVisibility(View.INVISIBLE);
+            hearts[life-1].setVisibility(View.INVISIBLE);
             gameManager.updateLife();
         }
     }
@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
     private void moveCar(int side){
         int carPosition = gameManager.getCarPos();
         cars[carPosition].setVisibility(View.INVISIBLE);
-        if(carPosition + side > 2|| carPosition + side < 0)
+        if(carPosition + side >= 2|| carPosition + side <= 0)
             return;
         cars[carPosition + side].setVisibility(View.VISIBLE);
         gameManager.setCarPos(carPosition + side);
