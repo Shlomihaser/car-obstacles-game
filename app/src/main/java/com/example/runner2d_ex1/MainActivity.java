@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
     private void moveCar(int side){
         int carPosition = gameManager.getCarPos();
         cars[carPosition].setVisibility(View.INVISIBLE);
-        if(carPosition + side >= 2|| carPosition + side <= 0)
+        if( (side == -1 && carPosition == 0) || (side == 1 && carPosition == 2))
             return;
         cars[carPosition + side].setVisibility(View.VISIBLE);
         gameManager.setCarPos(carPosition + side);
